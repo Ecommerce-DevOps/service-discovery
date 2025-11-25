@@ -1,0 +1,35 @@
+
+server:
+  port: 8761
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    hostname: discovery
+    prefer-ip-address: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://discovery:8761/eureka/
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: INFO
+      springframework:
+        web: INFO
+        data: INFO
+      boot:
+        autoconfigure:
+          data:
+            rest: INFO
+            jpa: INFO
+            orm: INFO
+
